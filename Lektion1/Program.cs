@@ -35,7 +35,8 @@ namespace Lektion1
             //Test.TestTransponder();
 
             Test.ProgrammTakten();
-           
+            
+
 
 
 
@@ -84,23 +85,29 @@ namespace Lektion1
 
         public void ProgrammTakten()
         {
-            Console.WriteLine("\r {0}",DateTime.Now);
-            Starrflügelflugzeuge flieger1 = new Starrflügelflugzeuge("LH 3000", new Positionen(3000,2000,100));
-            Starrflügelflugzeuge flieger2 = new Starrflügelflugzeuge("LH 500", new Positionen(3500,1500,180));
+            Console.WriteLine("\r {0}", DateTime.Now);
+            Starrflügelflugzeuge flieger1 = new Starrflügelflugzeuge("LH 3000", new Positionen(3000, 2000, 100));
+            Program.fliegerRegister += flieger1.Steuern;
+            Starrflügelflugzeuge flieger2 = new Starrflügelflugzeuge("LH 500", new Positionen(3500, 1500, 180));
+            Program.fliegerRegister += flieger2.Steuern;
+            Starrflügelflugzeuge flieger3 = new Starrflügelflugzeuge("LH 444", new Positionen(1730, 23400, 780));
+            Program.fliegerRegister += flieger3.Steuern;
             while (true)
             {
-                flieger1.Steuern();
-                flieger2.Steuern();
+                fliegerRegister();
                 Console.WriteLine();
                 Thread.Sleep(1000);
             }
         }
 
         public static TransponderDel transponder;
+        public static FliergerRegisterDel fliegerRegister;
 
-        
     }
 
 
-    delegate void TransponderDel(string kennung, Positionen pos); 
+    delegate void TransponderDel(string kennung, Positionen pos);
+
+    delegate void FliergerRegisterDel();
+    
 }

@@ -33,7 +33,7 @@ namespace Lektion1
 
         // public int maxPlätze; 
 
-        public Düsenflugzeuge(string kennung, Positionen pos, Airbus typ ) : base(kennung, pos)
+        public Düsenflugzeuge(string kennung, Positionen startPos, Airbus typ ) : base(kennung, startPos)
         {
             this.typ = typ;
             sitzplätze = (int)typ;
