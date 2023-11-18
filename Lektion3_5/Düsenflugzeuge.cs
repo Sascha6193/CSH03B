@@ -7,11 +7,25 @@ using System.Threading.Tasks;
 
 namespace Lektion1
 {
-    internal class Düsenflugzeuge : Starrflügelflugzeuge
+    internal class Düsenflugzeuge : Starrflügelflugzeuge, ITransponder
     {
         protected Airbus typ;
         private int sitzplätze;
         private int fluggäste;
+        public int maxPlätze;
+
+        public int MaxPlätze                  //definierung zu maxPlätze, wir können nur die verfügbaren Plätze nutzen eines Fliegers!
+        {
+            set                               //maximalwert setzen (durch enum Airbus typ, vordefinierte Werte)
+            {
+                maxPlätze = value;
+            }
+            get                               
+            {
+                return maxPlätze;
+            }
+        }
+
         public int Fluggäste
         {
             set
@@ -31,13 +45,11 @@ namespace Lektion1
         }
         
 
-        // public int maxPlätze; 
-
         public Düsenflugzeuge(string kennung, Positionen startPos, Airbus typ ) : base(kennung, startPos)
         {
             this.typ = typ;
             sitzplätze = (int)typ;
-            Console.WriteLine("Der Flieger vom Typ {0} hat {1} Plätze",this.GetType(),sitzplätze);
+            Console.WriteLine("Der Flieger vom Typ {0} hat {1} Plätze", this.GetType(), sitzplätze);
 
         }
 
@@ -46,7 +58,6 @@ namespace Lektion1
             Fluggäste = plätze;
         
         }
-        
        
     }
 }

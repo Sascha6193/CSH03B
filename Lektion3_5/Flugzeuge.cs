@@ -8,8 +8,8 @@ namespace Lektion1
 {
     internal class Flugzeuge : Luftfahrzeuge
     {
-        protected Positionen zielPos;
-        protected int streckeProTakt;
+        //protected Positionen zielPos;            //brauchst du HIER Beides NICHT, da du das in Luftfahrzeufe bereits deklariert hast. Vererbung!
+        //protected int streckeProTakt;            
         protected int flughöhe;
         protected int steighöheProTakt;
         protected int sinkhöheProTakt;
@@ -27,24 +27,23 @@ namespace Lektion1
 
         }
 
-        public Flugzeuge(string kennung, Positionen starPos) : base(kennung, starPos)
+        public Flugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
         {
-                      
+            this.kennung = kennung;
+            this.pos = startPos;
         }
-
-       
-
 
         public override void Steigen(int meter)
         {
-            pos.PositionÄndern(0, 0, meter);
+            pos.HöheÄndern(meter); //Nicht PositionÄndern verwenden. Da wir hier "steigen" müssen, ist es die Höhe! Methode habe ich ergänzt in "Positionen"
             Console.WriteLine(kennung + " Steigt " + meter + " Meter, Höhe = " + pos.h);
         }
 
 
         public override void Sinken(int meter)
         {
-            Console.WriteLine(kennung + " Sinkt " + -meter + " Meter, Höhe = " + pos.h);
+            pos.HöheÄndern(-meter); //Nicht PositionÄndern verwenden. Da wir Höhe in Meter abziehen müssen, wird Minus gerechnet!
+            Console.WriteLine(kennung + " Sinkt " + meter + " Meter, Höhe = " + pos.h);               // Das Minus kann hier weg, da wir es oben einsetzen (übersichtlicher zumal)
         }
     }
 }

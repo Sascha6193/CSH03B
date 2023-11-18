@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lektion1
 {
-    internal struct Positionen
+    public struct Positionen
     {
         public int x,y,h;
         public Positionen(int x, int y, int h)
@@ -23,7 +23,12 @@ namespace Lektion1
             h = h + deltaH;
         }
 
-        
-        
+        public void HöheÄndern(int deltaH)  //Aufruf in Sinken/Steigen           Komplett ausgelassen, warum das?
+        {
+            h = h + deltaH;
+        }
+
     }
+    public delegate void TransponderDel(string kennung, Positionen pos);
+
 }

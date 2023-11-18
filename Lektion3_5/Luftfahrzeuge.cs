@@ -12,8 +12,9 @@ namespace Lektion1
         protected string kennung;
 
         public string Kennung
-        {  
-            get { return kennung; } 
+        {
+            protected set { kennung = value; } //Datenschutz! Damit die Kennung nicht einfach geändert werden kann musst du sie protecten
+            get { return kennung; }            //gibt dir nur die Kennung an sich zurück, aber du lässt sie sonst überschreiben ohne dem protected!
             
         }
 
@@ -29,6 +30,7 @@ namespace Lektion1
 
         protected Positionen zielPos;
         protected int streckeProTakt;
+
         public void Starte(Positionen zielPos, int streckenProTakt)
         {
             this.zielPos = zielPos;
