@@ -12,9 +12,12 @@ namespace Lektion1
         public Starrflügelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
         {
             // Zentralen Transponderinstanz
-            Lektion3.Program.transponder += new Lektion3.TransponderDel(Transpond);
+            //Lektion3.Program.transponder += new Lektion3.TransponderDel(Transpond);
+            Program.transponder += Transpond;
         }
 
+        double a, b, alpha, a1, b1;
+        bool gelandet = false;
         public void Transpond(string kennung, Positionen pos)
         {
            
@@ -33,6 +36,7 @@ namespace Lektion1
             Program.transponder(kennung, pos);
 
 
+            #region Ausgeklammerter  Code 
             // double a, b, alpha, a1, b1;
 
 
@@ -53,6 +57,7 @@ namespace Lektion1
             //    }
 
             //}
+            #endregion
 
             bool gelandet = false;
             bool steigt = true; 
@@ -93,7 +98,10 @@ namespace Lektion1
 
                 if (steigt)
                 {
-                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - this.PositionsBerechnen(strecke, steigenProTakt);
+                    // Berenung flasch
+                    // double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - this.PositionsBerechnen(strecke, steigenProTakt);
+                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(steighöheProTakt, 2));
+                    this.PositionsBerechnen(strecke, steighöheProTakt);
                 }
                 else if (sinkt)
                 {
@@ -113,7 +121,8 @@ namespace Lektion1
                 Program.fliegerRegister -= this.Steuern;
                 Program.transponder -= this.Transpond;
 
-                Console.WriteLine("\n{0} gelandet ( Zieldistanz={1}, Hohendistanz={2} ", kennung, Zieldistanz(), posh.h - zielPos.h);
+                //Console.WriteLine("\n{0} gelandet ( Zieldistanz={1}, Hohendistanz={2} ", kennung, Zieldistanz(), posh.h - zielPos.h);
+                Console.WriteLine($"\nFlugzeug {kennung} gelandet (Zieldistanz = {Zieldistanz()}, Höhendistanz = {pos.h - zielPos.h})");
             }
         }
 
@@ -123,7 +132,7 @@ namespace Lektion1
         {
             double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2)) - Math.Pow(sinkhöheProTakt,2);
 
-            int sinkstrecke = (int)strecke * pos.h - zielPos.h / sinkhöheProTakt;
+            int sinkstrecke = (int)(strecke * (pos.h - zielPos.h ) / sinkhöheProTakt);
 
             int zieldistanz = Zieldistanz();
 
@@ -137,28 +146,27 @@ namespace Lektion1
                 return false;
             }
             
-            // Bei denn sinkflug ist ein Negativer Wert für denn zweiten Parameter anzugeben 
+            
+                       
+        }
+        // Bei denn sinkflug ist ein Negativer Wert für denn zweiten Parameter anzugeben 
+        private void PositionsBerechnen(double strecke, int steighöheProTakt)
+        {
 
-            private void PositionsBerechnen(double strecke, int steighöheProTakt) 
-            {
-                
-                double a =  zielPos.x - pos.x;
-                double b = zielPos.y - pos.y;  
+            a = zielPos.x - pos.x;
+            b = zielPos.y - pos.y;
 
-                double alpha = Math.Atan2 (a, b);
+            alpha = Math.Atan2(a, b);
 
-                double a1 = Math.Cos (alpha) * strecke;
-                double b1 = Math.Sin (alpha) * strecke;
+            a1 = Math.Cos(alpha) * strecke;
+            b1 = Math.Sin(alpha) * strecke;
 
-                startPos.PositionÄndern((int) a1, (int)b1, steighöheProTakt );
-            }
+            pos.PositionÄndern((int)a1, (int)b1, steighöheProTakt);
+        }
 
-            private int Zieldistanz()
-            {
-                return (int)Math.Sqrt(Math.Pow(zielPos.x - pos.x, 2) + Math.Pow(zielPos.y - pos.y, 2)); 
-            }
-
-
+        private int Zieldistanz()
+        {
+            return (int)Math.Sqrt(Math.Pow(zielPos.x - pos.x, 2) + Math.Pow(zielPos.y - pos.y, 2));
         }
     }
 }
