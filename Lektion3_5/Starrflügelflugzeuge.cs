@@ -1,6 +1,7 @@
 ﻿using Lektion3;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,23 +13,40 @@ namespace Lektion1
         public Starrflügelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
         {
             // Zentralen Transponderinstanz
-            //Lektion3.Program.transponder += new Lektion3.TransponderDel(Transpond);
-            Program.transponder += Transpond;
+            
+             Program.transponder += Transpond;
         }
 
         double a, b, alpha, a1, b1;
         bool gelandet = false;
         public void Transpond(string kennung, Positionen pos)
         {
-           
+            // Todo - Lektion1.Starrflugzeuge + Lektion1.Positionen
+
+            double abstand = Math.Sqrt(Math.Pow(this.pos.x - pos.x, 2) + Math.Pow(this.pos.y - pos.y,2));
+
             if (kennung.Equals(this.kennung))
             {
+                DateTime timetamp = DateTime.Now;
+                Console.Write("{0}:{1}" ,timetamp.Minute, timetamp.Second);
                 Console.WriteLine("{0} an Position x={1}, y={2}",kennung, pos.x,pos.y);
+            }
+            else
+            {
+                Console.Write("\t{0} ist {1} m von {2} enfernt. \n", this.kennung,(int)abstand,kennung );
+                if (Math.Abs(this.pos.h - pos.h) < 100 && abstand < 500)
+                {
+                    Console.WriteLine("\tWARNUNG: {0} hat nur {1} m Höhenabstand!", kennung,Math.Abs(this.pos.h - pos.h));
+                }
             }
 
 
-            
-            
+            Console.Write("\t{0}-Position : {1}-{2}-{3}",this.kennung, pos.x, pos.y, pos.h);
+            Console.Write("Zieldistanz: m\n", Zieldistanz());
+
+
+
+
         }
 
         public void Steuern()

@@ -78,7 +78,8 @@ namespace Lektion3
             flieger2.Starte(new Positionen(1000, 500, 200), 200);
             Program.fliegerRegister += flieger2.Steuern;
             
-            while (true)
+            
+            while (fliegerRegister != null)
             {
                 fliegerRegister();
                 Console.WriteLine();
