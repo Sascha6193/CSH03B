@@ -12,7 +12,7 @@ namespace FileBeipiele
         static void Main(string[] args)
         {
             Program test = new Program();
-            string pfad = @"D:\Entwicklung\CSH-Lehrgang\CSH03\FileBeipiele\bin\Release";
+            string pfad = @"D:\Entwicklung\CSH-Lehrgang\CSH03\FileBeipiele\bin\Musterdatei.txt";
             //byte[] array = { 68, 97, 116, 101, 105 };
             // test.DateiErstellen(pfad, array);
             string content = @"Die Text wird Inhalt der Datei.
@@ -55,7 +55,13 @@ D:\Entwicklung\CSH-Lehrgang\CSH03\FileBeipiele\bin\Release";
         public void ReaderNutzen(string pfad) 
         {
             StreamReader reader = new StreamReader(File.Open(pfad, FileMode.Open));
-            Console.WriteLine(reader.ReadLine());
+            string line; 
+            while ((line = reader.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
+            Console.WriteLine();
+            //Console.WriteLine(reader.ReadLine()); Kann raus wird oben ersetzt in schleife 
             reader.Close();
         }
 
