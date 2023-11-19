@@ -23,7 +23,7 @@ namespace Lektion1
             h = h + deltaH;
         }
 
-        public void HöheÄndern(int deltaH)  //Aufruf in Sinken/Steigen           Komplett ausgelassen, warum das?
+        public void HöheÄndern(int deltaH)  //Aufruf in Sinken/Steigen           
         {
             h = h + deltaH;
         }

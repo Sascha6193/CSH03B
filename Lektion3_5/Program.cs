@@ -14,10 +14,9 @@ namespace Lektion3
 {
     internal class Program
     {
-        public static TransponderDel transponder;
-        //public static FliergerRegisterDel fliegerRegister;        //ist als delegate void zu deklarieren! Siehe eine Zeile drunter       !
-        public delegate void FliergerRegisterDel();                 //variable hinzufügen! siehe eine Zeile drunter                        !
-        public static FliergerRegisterDel fliegerRegister;          //Deine Flieger sollen sich an- & abmelden. Du brauchst das deshalb.   !
+        public static TransponderDel transponder;                                                            
+        public delegate void FliergerRegisterDel();                 
+        public static FliergerRegisterDel fliegerRegister;          
 
 
         static void Main(string[] args)
@@ -25,9 +24,10 @@ namespace Lektion3
             Program Test = new Program();   
             Test.ProgrammTakten();
             Console.WriteLine();
-            //Console.ReadKey();                 //Dir reicht die ReadLine Variante eigentlich. ReadKey ist für was anderes besser.
+            Console.ReadLine();
         }
 
+        #region Auskommentierter Code Prüfen ob gebraucht wird 
         //public void Kennung()
         //{
         //    Flugzeuge flieger = new Flugzeuge("Lh 500 ", new Positionen(500, 300, 20));
@@ -64,6 +64,7 @@ namespace Lektion3
 
 
         //}
+        #endregion
 
         public void ProgrammTakten()
         {

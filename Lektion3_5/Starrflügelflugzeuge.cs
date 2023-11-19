@@ -23,7 +23,7 @@ namespace Lektion1
         bool gelandet = false;
         public void Transpond(string kennung, Positionen pos)
         {
-            // Todo - Lektion1.Starrflugzeuge + Lektion1.Positionen
+            
 
             double abstand = Math.Sqrt(Math.Pow(this.pos.x - pos.x, 2) + Math.Pow(this.pos.y - pos.y,2));
 
@@ -31,7 +31,7 @@ namespace Lektion1
             {
                 DateTime timetamp = DateTime.Now;
                 Console.Write("{0}:{1}" ,timetamp.Minute, timetamp.Second);
-                Console.Write("{0} an Position x={1}, y={2}, h={3}",kennung, pos.x,pos.y, pos.h);             //Write, nicht Writeline
+                Console.Write("{0} an Position x={1}, y={2}, h={3}",kennung, pos.x,pos.y, pos.h);            
                
                 //Wiederholungsaufgabenteil
                 Console.Write(" Zieldistanz: {0}m \n", Zieldistanz());
@@ -80,7 +80,7 @@ namespace Lektion1
 
             //bool gelandet = false;
             //bool steigt = true; 
-            // Todo
+            
 
             
             if (steigt )
@@ -115,9 +115,7 @@ namespace Lektion1
                 //  stecke am Boden Berechen:
 
                 if (steigt)
-                {
-                    // Berenung falsch -> Richtig
-                    // double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - this.PositionsBerechnen(strecke, steigenProTakt);     //das ist falsch
+                {                         
                     double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(steighöheProTakt, 2));
                     this.PositionsBerechnen(strecke, steighöheProTakt);
                 }
@@ -140,13 +138,13 @@ namespace Lektion1
                 Program.transponder -= this.Transpond;
 
                 Console.WriteLine("\n{0} gelandet ( Zieldistanz={1}, Hohendistanz={2} ", kennung, Zieldistanz(), pos.h - zielPos.h);
-                //Console.WriteLine($"\nFlugzeug {kennung} gelandet (Zieldistanz = {Zieldistanz()}, Höhendistanz = {pos.h - zielPos.h})");
+                
             }
         }
 
         private bool SinkenEinleiten()
         {
-            double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhöheProTakt,2));            //Lösung: du hast die () falsch gesetzt, sah nach Tippfehler aus.
+            double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhöheProTakt,2));           
             int sinkstrecke = (int)(strecke * (pos.h - zielPos.h ) / sinkhöheProTakt);
             int zieldistanz = Zieldistanz();
 
