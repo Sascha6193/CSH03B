@@ -36,25 +36,25 @@ namespace FileBeipiele
 
 
         #region Methoden zum Verständniss  
-        //public void DateiErstellen(string pfad, byte[] array) 
-        //{
-        //    FileStream stream = File.Open(pfad,FileMode.Create);
-        //    stream.Write(array, 0, array.Length);
-        //    stream.Close();
-        //}
+        public void DateiErstellen(string pfad, byte[] array)
+        {
+            FileStream stream = File.Open(pfad, FileMode.Create);
+            stream.Write(array, 0, array.Length);
+            stream.Close();
+        }
 
-        //public void DateiLesen(string pfad)
-        //{
-        //    FileStream stream = File.Open(pfad,FileMode.Open);
-        //    byte[] array = new byte[stream.Length];
-        //    stream.Read(array, 0, (int)stream.Length); 
-        //    for (int i = 0; i < array.Length; i++) 
-        //    {
-        //        Console.Write((char)array[i]);
-        //    }
-        //    Console.WriteLine();
-        //    stream.Close();
-        //}
+        public void DateiLesen(string pfad)
+        {
+            FileStream stream = File.Open(pfad, FileMode.Open);
+            byte[] array = new byte[stream.Length];
+            stream.Read(array, 0, (int)stream.Length);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write((char)array[i]);
+            }
+            Console.WriteLine();
+            stream.Close();
+        }
         #endregion
 
         #region Methoden fürs einfaches lesen und schreiben von der Stream Klassen 
@@ -74,7 +74,6 @@ namespace FileBeipiele
                 Console.WriteLine(line);
             }
             Console.WriteLine();
-            //Console.WriteLine(reader.ReadLine()); Kann raus wird oben ersetzt in schleife 
             reader.Close();
         }
         #endregion
