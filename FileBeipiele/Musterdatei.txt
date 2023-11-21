@@ -1,0 +1,3 @@
+Die Text wird Inhalt der Datei.
+            Er enthählt Zeilenumbrüche und ein Pfadangabe:
+            D:\Entwicklung\CSH-Lehrgang\CSH03\FileBeipiele\Musterdatei
