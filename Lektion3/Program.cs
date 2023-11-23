@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 
 
-namespace Lektion3
+namespace Lektion5
 {
     internal class Program
     {

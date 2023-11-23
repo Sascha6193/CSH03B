@@ -10,13 +10,13 @@ using System.IO;
 
 namespace Lektion1
 {
-    internal class Starrflügelflugzeuge : Flugzeuge
+    internal class Starrfluegelflugzeuge : Flugzeuge
     {
-        public Starrflügelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
+        public Starrfluegelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
         {
             // Zentralen Transponderinstanz
             
-             Program.transponder += Transpond;
+            // Program.transponder += Transpond; sonst Doppelte flieger 
         }
 
         double a, b, alpha, a1, b1;
@@ -90,14 +90,14 @@ namespace Lektion1
                     steigt = false;
                     sinkt = true; 
                 }
-                else if (pos.h > flughöhe)
+                else if (pos.h > flughoehe)
                 {
                     steigt = false; 
                 }
             }
             else if ( sinkt )
             {
-                if ( pos.h <= zielPos.h + sinkhöheProTakt )
+                if ( pos.h <= zielPos.h + sinkhoeheProTakt )
                 {
                     gelandet = true;
                 }
@@ -116,13 +116,13 @@ namespace Lektion1
 
                 if (steigt)
                 {                         
-                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(steighöheProTakt, 2));
-                    this.PositionsBerechnen(strecke, steighöheProTakt);
+                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(steighoeheProTakt, 2));
+                    this.PositionsBerechnen(strecke, steighoeheProTakt);
                 }
                 else if (sinkt)
                 {
-                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhöheProTakt, 2));
-                    this.PositionsBerechnen(strecke, -sinkhöheProTakt);
+                    double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhoeheProTakt, 2));
+                    this.PositionsBerechnen(strecke, -sinkhoeheProTakt);
                 }
                 else
                 {
@@ -144,8 +144,8 @@ namespace Lektion1
 
         private bool SinkenEinleiten()
         {
-            double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhöheProTakt,2));           
-            int sinkstrecke = (int)(strecke * (pos.h - zielPos.h ) / sinkhöheProTakt);
+            double strecke = Math.Sqrt(Math.Pow(streckeProTakt, 2) - Math.Pow(sinkhoeheProTakt,2));           
+            int sinkstrecke = (int)(strecke * (pos.h - zielPos.h ) / sinkhoeheProTakt);
             int zieldistanz = Zieldistanz();
 
             if (sinkstrecke >= zieldistanz) 

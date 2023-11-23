@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Lektion1.Flugzeuge">
+    <Position X="7" Y="4.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AwAkAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAQAA=</HashCode>
+      <FileName>Flugzeuge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lektion1.Luftfahrzeuge">
+    <Position X="7" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AgABAAAAACAAEAAAAAAAAIAAAAAAAAAAEAAAAAAAQQA=</HashCode>
+      <FileName>Luftfahrzeuge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Lektion5.Program">
+    <Position X="18" Y="0.5" Width="3.5" />
+    <NestedTypes>
+      <Delegate Name="Lektion5.Program.FliergerRegisterDel" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Program.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAIABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lektion1.Duesenflugzeuge" Collapsed="true">
+    <Position X="7.5" Y="10.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACBAAAAACAAAAAAAAAIAAAACAAAAAAABAAA=</HashCode>
+      <FileName>Duesenflugzeuge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lektion1.Starrfluegelflugzeuge" Collapsed="true">
+    <Position X="7.75" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAgAAAAAAQAAAAAACAAAAgAQAwAQEBAAA=</HashCode>
+      <FileName>Starrfluegelflugzeuge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Lektion1.Positionen">
+    <Position X="12.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAQABgAAAAAAA=</HashCode>
+      <FileName>Positionen.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Lektion1.ITransponder">
+    <Position X="3.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITransponder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Lektion1.Airbus">
+    <Position X="29.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAwMAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Airbus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

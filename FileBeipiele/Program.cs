@@ -35,6 +35,7 @@ namespace FileBeipiele
         }
 
 
+
         #region Methoden zum Verständniss  
         public void DateiErstellen(string pfad, byte[] array)
         {

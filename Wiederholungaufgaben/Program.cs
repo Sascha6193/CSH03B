@@ -15,11 +15,17 @@ namespace Wiederholungaufgaben
             Program test = new Program();
             string pfad = @"D:\Entwicklung\CSH-Lehrgang\CSH03\Wiederholungaufgaben\WiederholungsDatei42.txt";
             byte[] array = { 68, 97, 116, 101, 105 };
+
+            //Aufruf der aufgabe 4.2
             //test.DateiErstellen(pfad, array);
-            //test.ReaderNutzen(pfad);
+
+            //Aufruf der aufgabe 4.3
+            //test.ReaderNutzen(pfad); 
+
+            //Aufruf der aufgabe 4.4 b
             test.BinaryRead(pfad);
         }
-        // Gibt array nicht aus (im explorer) 
+        // Gibt array nicht aus (im explorer) - Hier der Fehler ( muss der array im explorer angezeigt werden? )
         #region Lektion 4.2 Wiederholungsaufgabe 
         public void DateiErstellen(string pfad, byte[] array)
         {
@@ -30,26 +36,27 @@ namespace Wiederholungaufgaben
             }
             stream.Close();
         }
-        #endregion 
+        #endregion
 
-        // Zeigt auf eine Exception (Methode ist 1:1 mit Lösung B 4.3)
-       //#region Lektion 4.3 Wiederholungsaufgabe 
-       // public void ReaderNutzen(string pfad)
-       // {
-       //     //StreamReader reader = new StreamReader(File.Open(pfad, FileMode.Open));
-       //     int zeichen;
-       //     while ((zeichen = reader.Read()) != -1)
-       //     {
-       //         Console.Write((char)zeichen);
-       //         Console.WriteLine();
-       //         reader.Close();
-       //     }
+        // Zeigt auf eine Exception (Methode ist 1:1 mit Lösung B 4.3) - Hier der Fehler 
+        #region Lektion 4.3 Wiederholungsaufgabe 
+        public void ReaderNutzen(string pfad)
+        {
+            StreamReader reader = new StreamReader(File.Open(pfad, FileMode.Open));
+            int zeichen;
+            while ((zeichen = reader.Read()) != -1)
+            {
+                Console.Write((char)zeichen);
+                Console.WriteLine();
+                reader.Close();
+            }
 
 
-       // }
-       // #endregion
+        }
+        #endregion
 
-        #region Lektion 4.4 Wiederholungsaufgabe
+        // scheint zu funktionieren
+        #region Lektion 4.4 b Wiederholungsaufgabe 
         public void BinaryRead(string pfad)
         {
             BinaryReader reader = null;
@@ -78,7 +85,7 @@ namespace Wiederholungaufgaben
             reader.Close();
             Console.WriteLine();
         }
-        #endregion
+        #endregion e
 
     }
 }

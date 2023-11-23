@@ -1,4 +1,4 @@
-﻿using Lektion3;
+﻿using Lektion5;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Lektion1
         public Starrflügelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
         {
             // Zentralen Transponderinstanz
-            Lektion3.Program.transponder += new Lektion3.TransponderDel(Transpond);
+            Lektion5.Program.transponder += new Lektion5.TransponderDel(Transpond);
         }
 
         public void Transpond(string kennung, Positionen pos)
@@ -30,7 +30,7 @@ namespace Lektion1
 
         public void Steuern()
         { 
-            Lektion3.Program.transponder(kennung, pos);
+            Lektion5.Program.transponder(kennung, pos);
 
             
             double a, b, alpha, a1, b1;
