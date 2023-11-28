@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE8B5E82-F3A9-4EBC-A9C3-5D9C01307DC6}</ProjectGuid>
+    <ProjectGuid>{CD59DB68-3620-497A-8BA9-4C2114FBF57E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lektion5</RootNamespace>
-    <AssemblyName>Lektion5</AssemblyName>
+    <RootNamespace>ESA_2</RootNamespace>
+    <AssemblyName>ESA_2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,22 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airbus.cs" />
-    <Compile Include="Duesenflugzeuge.cs" />
-    <Compile Include="Flugzeuge.cs" />
-    <Compile Include="ITransponder.cs" />
-    <Compile Include="Luftfahrzeuge.cs" />
-    <Compile Include="Positionen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Starrfluegelflugzeuge.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="bin\Debug\LH 3000.init" />
-    <None Include="bin\Debug\LH 500.init" />
-    <None Include="bin\Debug\test.init" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
