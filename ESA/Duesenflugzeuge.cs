@@ -49,8 +49,8 @@ namespace Lektion1
         }
         
 
-        public Duesenflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
-        {
+        public Duesenflugzeuge(string kennung, Positionen startPos, bool useFlugschreiber) : base(kennung, startPos, useFlugschreiber) //Du musst den boolean einfügen & useFlugschreiber!
+        {                                                                                                                              //weiteres Problem in Starrflügelflugzeug! (Kommentar)
             bool initialized = this.Starte();
             if (initialized)
             {

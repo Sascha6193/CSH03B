@@ -21,25 +21,29 @@ namespace Lektion5
         static void Main(string[] args)
         {
 
-            //Program Test = new Program();
-            //Test.ProgrammTakten();
-            //Console.WriteLine();
+            Program Test = new Program();
+            Test.ProgrammTakten();
+            Console.WriteLine();
 
             //string s = "String";
             //Console.WriteLine(s.IndexOf('i'));
             //Console.WriteLine("Substring".Substring(4));
             //Console.WriteLine("Parameterwerte".Substring(4,10));
 
+            #region Unnötig, lösch das raus
             // Todo kann wieder auskommentiert werden
             //Duesenflugzeuge flug = new Duesenflugzeuge("LH3000", new Positionen(500, 580, 200));
             //flug.Starte();
+            #endregion
 
-            Flugschreiber flugSchreiber = new Flugschreiber();
-            Console.WriteLine(flugSchreiber);
-            Console.ReadKey();
+            #region Müll, erklärung im Kommentar daneben
+            //Flugschreiber flugSchreiber = new Flugschreiber();                       //Warum deklarierst du das hier drin?
+            //Console.WriteLine(flugSchreiber);                                        //Du musst ProgrammTakten nur im Main aufrufen, da sich dort alles abspielt.
+            //Console.ReadKey();
+            #endregion
         }
 
-        
+
 
         class Flugschreiber
         {
@@ -48,10 +52,10 @@ namespace Lektion5
             private bool istProtokollactive;            //ist Protokoll aktiv?
             private bool iniFlugschreiber = true;      //Flugschreiber inizialisiert? false = nein. Wir deklarieren hier vorerst nur.
 
-            public Flugschreiber(Starrfluegelflugzeuge sFl, bool iaPr)
+            public Flugschreiber(Starrfluegelflugzeuge sFl, bool iPrA)      //sFL = Starrflügel-Flugzeug, iaPr = ist Protokoll active
             {
                 sFlieger = sFl;
-                istProtokollactive = iaPr;
+                istProtokollactive = iPrA;
 
 
                 string writepath = @"D:\Entwicklung\CSH-Lehrgang\CSH03\ESA\bin\Release\";
@@ -159,8 +163,8 @@ namespace Lektion5
 
             #region  CSH03B Lektion 5
 
-            Duesenflugzeuge flieger1 = new Duesenflugzeuge("LH 500", new Positionen(3500, 1500, 180));
-            Duesenflugzeuge flieger2 = new Duesenflugzeuge("LH 3000", new Positionen(3000, 2000, 100));
+            Duesenflugzeuge flieger1 = new Duesenflugzeuge("LH 500", new Positionen(3500, 1500, 180), protokollieren);        //protokollieren hat gefehlt. & siehe Düsenflugzeugklasse! (Kommentar)
+            Duesenflugzeuge flieger2 = new Duesenflugzeuge("LH 3000", new Positionen(3000, 2000, 100), protokollieren);       //Augen auf beim Würstchen-Kauf.
 
             while (fliegerRegister != null)
             {

@@ -56,10 +56,10 @@ namespace ESA_Projekt_EinfacherEndcode
         private bool istProtokollactive;            //ist Protokoll aktiv?
         private bool iniFlugschreiber = true;      //Flugschreiber inizialisiert? false = nein. Wir deklarieren hier vorerst nur.
 
-        public Flugschreiber(Starrflügelflugzeug sFl, bool iaPr)
+        public Flugschreiber(Starrflügelflugzeug sFl, bool iPrA)           //sFL = Starrflügel-Flugzeug, iaPr = ist Protokoll active
         {
             sFlieger = sFl;
-            istProtokollactive = iaPr;
+            istProtokollactive = iPrA;
 
 
             string writepath = @"G:\Fernstudium C#\VS Projekte\BGF460\CSH03\Einsendeaufgabe_CSH03\bin\Release\";

@@ -12,7 +12,8 @@ namespace Lektion1
 {
     internal class Starrfluegelflugzeuge : Flugzeuge
     {
-        public Starrfluegelflugzeuge(string kennung, Positionen startPos) : base(kennung, startPos)
+        public Airbus typ;
+        public Starrfluegelflugzeuge(string kennung, Positionen startPos, bool useFlugschreiber) : base(kennung, startPos)    //Du musst den boolean einfügen & useFlugschreiber!
         {
             // Zentralen Transponderinstanz
             
