@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34202.233
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34301.259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lektion1", "Lektion1\Lektion1.csproj", "{0482E2B9-0075-4BD3-87DC-C01FAB0C7C42}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESA_2", "ESA_2\ESA_2.csproj", "{CD59DB68-3620-497A-8BA9-4C2114FBF57E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESA", "ESA\ESA.csproj", "{0E298441-31B0-4772-B9B3-58A10E58C121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESA_Projekt_EinfacherEndcode", "ESA_Projekt_EinfacherEndcode\ESA_Projekt_EinfacherEndcode.csproj", "{E961C5D5-F467-4151-B179-A8A8B81E4830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{0E298441-31B0-4772-B9B3-58A10E58C121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E298441-31B0-4772-B9B3-58A10E58C121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E298441-31B0-4772-B9B3-58A10E58C121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E961C5D5-F467-4151-B179-A8A8B81E4830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E961C5D5-F467-4151-B179-A8A8B81E4830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E961C5D5-F467-4151-B179-A8A8B81E4830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E961C5D5-F467-4151-B179-A8A8B81E4830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
