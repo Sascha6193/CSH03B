@@ -50,7 +50,6 @@
     <Compile Include="Luftfahrzeuge.cs" />
     <Compile Include="Positionen.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Program_ESA_Projket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Starrfluegelflugzeuge.cs" />
   </ItemGroup>

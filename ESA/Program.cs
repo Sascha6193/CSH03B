@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
-using ESA_Projekt;
 
 namespace Lektion5
 {
@@ -16,6 +15,7 @@ namespace Lektion5
         public static TransponderDel transponder;
         public delegate void FliergerRegisterDel();
         public static FliergerRegisterDel fliegerRegister;
+        public static bool protokollieren = true;
 
 
         static void Main(string[] args)
@@ -34,49 +34,113 @@ namespace Lektion5
             //Duesenflugzeuge flug = new Duesenflugzeuge("LH3000", new Positionen(500, 580, 200));
             //flug.Starte();
 
-            FlugSchreiber flugSchreiber = new FlugSchreiber();
-            Console.WriteLine(flugSchreiber.ToString());
+            Flugschreiber flugSchreiber = new Flugschreiber();
+            Console.WriteLine(flugSchreiber);
             Console.ReadKey();
         }
 
-        #region Auskommentierter Code Prüfen ob gebraucht wird 
-        //public void Kennung()
-        //{
-        //    Flugzeuge flieger = new Flugzeuge("Lh 500 ", new Positionen(500, 300, 20));
-        //    Console.WriteLine("Kennung = {0}", flieger.Kennung);
-        //}
+        
 
-        // Code stehen lassen und prüfen
-        //public void TestTransponder()
-        //{
-        //    Starrfluegelflugzeuge flieger1 = new Starrfluegelflugzeuge("LH 3000", new Positionen(3000, 2000, 100));
-        //    flieger1.Steuern();
-        //    Console.WriteLine();
+        class Flugschreiber
+        {
+            public string ProtokollDatei { get; private set; }
+            private Starrfluegelflugzeuge sFlieger;
+            private bool istProtokollactive;            //ist Protokoll aktiv?
+            private bool iniFlugschreiber = true;      //Flugschreiber inizialisiert? false = nein. Wir deklarieren hier vorerst nur.
 
-        //    Starrfluegelflugzeuge flieger2 = new Starrfluegelflugzeuge("LH 500", new Positionen(3500, 1500, 180));
-        //    flieger1.Steuern();
-        //    flieger2.Steuern();
-        //    Console.WriteLine();
+            public Flugschreiber(Starrfluegelflugzeuge sFl, bool iaPr)
+            {
+                sFlieger = sFl;
+                istProtokollactive = iaPr;
 
 
-        //    Starrfluegelflugzeuge flieger3 = new Starrfluegelflugzeuge("LH 444", new Positionen(1730, 23400, 780));
-        //    flieger1.Steuern();
-        //    flieger2.Steuern();
-        //    flieger3.Steuern();
-        //    Console.WriteLine();
+                string writepath = @"D:\Entwicklung\CSH-Lehrgang\CSH03\ESA\bin\Release\";
+                string zeitstempel = Convert.ToString(DateTime.Now.DayOfWeek) + "-" + Convert.ToString(DateTime.Now.Hour)
+                + "-" + Convert.ToString(DateTime.Now.Minute) + "-" + Convert.ToString(DateTime.Now.Second);
 
-        //    // Flieger 2 objekt beim Delegate abmelden 
-        //    transponder -= flieger2.Transpond;
-        //    flieger1.Steuern();
-        //    flieger3.Steuern();
-        //    Console.WriteLine();
+                //Dateierstellung: Pfad, Kennung + DateTime (Aufgabe 3 ESA)
+                ProtokollDatei = writepath + sFlieger.Kennung + "_" + zeitstempel + ".bin";
 
+            }
 
+            public string ZeitStempel()   //ESA Aufgabe 3
+            {
+                #region zeitstempel definition
+                //Zur Übersichtlichkeit im Code (für Zeitstempel im Dateinamen mit Trennzeichen)
+                //string day = Convert.ToString(DateTime.Now.DayOfWeek) + "-";    //DayOfWeek = z.B.: Monday (= String-Ausgabe)
+                //string hour = Convert.ToString(DateTime.Now.Hour) + "-";
+                //string minute = Convert.ToString(DateTime.Now.Minute) + "-";
+                //string second = Convert.ToString(DateTime.Now.Second);
+                //string zeitstempel = day + hour + minute + second;
 
+                ////oder als Kurzfassung:
+                ////string zeitstempel = Convert.ToString(DateTime.Now.DayOfWeek) + "-" + Convert.ToString(DateTime.Now.Hour)
+                ////                      + "-" + Convert.ToString(DateTime.Now.Minute) + "-" + Convert.ToString(DateTime.Now.Second);
+                #endregion
+                string zeitstempel = Convert.ToString(DateTime.Now.DayOfWeek) + "-" + Convert.ToString(DateTime.Now.Hour)
+                          + "-" + Convert.ToString(DateTime.Now.Minute) + "-" + Convert.ToString(DateTime.Now.Second);
 
+                return zeitstempel;
+            }
 
-        //}
-        #endregion
+            public void PosProtokollieren(string kennung, Positionen pos)
+            {
+                if (!iniFlugschreiber)
+                {
+                    throw new Exception("Fligschreiber muss initialisiert werden, bevor er genutzt werden kann!");
+                }
+
+                if (kennung == sFlieger.Kennung)
+                {
+                    string content2 = pos.x + "-" + pos.y + "-" + pos.h;
+                    FinishWrite(content2);
+                }
+
+            }
+            public void InizProtokoll(Positionen startPos, Positionen zielPos)
+            {
+                #region Übersichtlichkeitskürzel
+
+                //Zur Übersichtlichkeit im Code (Positionsangaben des Headers mit Trennzeichen)
+                string zPosHead = zielPos.x + "-" + zielPos.y + "-" + zielPos.h;                 //ZielPositionHeader (zPosHead)
+                string posHead = startPos.x + "-" + startPos.y + "-" + startPos.h;                              //PositionHeader (posHead)
+                #endregion
+
+                string content = @"Flug mit Kennung & Typ " + sFlieger.Kennung + sFlieger.typ + " startet an Position:" + posHead + " mit Zielposition: " + zPosHead;
+                istProtokollactive = true;                                                       //Protokoll wird inizialisiert / aktiviert sobald diese Methode aufgerufen wird.
+                FinishWrite(content);
+
+            }
+
+            private void FinishWrite(string content)
+            {
+                if (istProtokollactive)
+                {
+                    BinaryWriter bWriter = new BinaryWriter(File.Open(ProtokollDatei, FileMode.Append));
+
+                    bWriter.Write(content);
+                    //bWriter.Flush();                 //Flush = Löscht die Puffer für diesen Datenstrom,
+                    //veranlasst die Ausgabe aller gepufferten Daten in die Datei und löscht zudem alle Zwischendateipuffer.
+                    bWriter.Close();
+                }
+            }
+        }
+
+        public void ESA4Out(string protokollpfad)
+        {
+            BinaryReader bReader = new BinaryReader(File.Open(protokollpfad, FileMode.Open));
+            Console.WriteLine("\n" + bReader.ReadString() + "\n");
+            var datalänge = bReader.BaseStream.Length;
+            while (bReader.BaseStream.Position != datalänge)
+            {
+                foreach (var zahl in bReader.ReadString().Split('-'))
+                {
+                    Console.Write("\t" + zahl);
+                }
+            }
+            Console.WriteLine();
+
+        }
 
         public void ProgrammTakten()
         {
